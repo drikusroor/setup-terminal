@@ -20,6 +20,9 @@ mkdir -p "$OH_MY_ZSH_CUSTOM/plugins"  # Ensure the custom plugins directory exis
 # Install zsh-bat
 /bin/zsh bin/zsh-bat
 
+# Install zsh-autosuggestions
+/bin/zsh bin/zsh-autosuggestions
+
 
 echo "\e[32m✨ All tools and plugins installed successfully. ✨\e[0m"
 
