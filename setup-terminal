@@ -1,16 +1,24 @@
 #!/bin/zsh
 
-# Define the base directory for all plugins and tools
+# Define the base directory for all terminal plugins and tools
 export PLUGIN_DIR="$HOME/repos/terminal/plugins"
 
-# Create the plugin directory if it doesn't exist
+# Define the Oh My Zsh custom directory path
+export OH_MY_ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+
+# Ensure the plugin and Oh My Zsh custom directories exist
 mkdir -p "$PLUGIN_DIR"
+mkdir -p "$OH_MY_ZSH_CUSTOM/plugins"  # Ensure the custom plugins directory exists
+
 
 # Install diff-so-fancy
 /bin/zsh bin/diff-so-fancy
 
 # Install bat
 /bin/zsh bin/bat
+
+# Install zsh-bat
+/bin/zsh bin/zsh-bat
 
 
 echo "\e[32m✨ All tools and plugins installed successfully. ✨\e[0m"
