@@ -8,9 +8,9 @@ ZSHRC="$HOME/.zshrc"
 # Clone zsh-bat if it's not already installed
 if [ ! -d "$ZSH_BAT_PLUGIN_DIR" ]; then
     git clone --quiet "$REPO_URL" "$ZSH_BAT_PLUGIN_DIR"
-    echo "zsh-bat plugin installed successfully."
+    echo "\033[32m✨ zsh-bat plugin installed successfully. ✨\033[0m"
 else
-    echo "zsh-bat plugin is already installed."
+    echo "\033[32m✨ zsh-bat plugin is already installed. ✨\033[0m"
 fi
 
 # Function to add zsh-bat to the plugins array in .zshrc idempotently

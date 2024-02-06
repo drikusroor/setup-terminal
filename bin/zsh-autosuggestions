@@ -8,9 +8,9 @@ ZSHRC="$HOME/.zshrc"
 # Clone zsh-autosuggestions if it's not already installed
 if [ ! -d "$ZSH_AUTOSUGGESTIONS_DIR" ]; then
     git clone --quiet "$REPO_URL" "$ZSH_AUTOSUGGESTIONS_DIR"
-    echo "zsh-autosuggestions plugin installed successfully."
+    echo "\033[32m✨ zsh-autosuggestions plugin installed successfully. ✨\033[0m"
 else
-    echo "zsh-autosuggestions plugin is already installed."
+    echo "\033[32m✨ zsh-autosuggestions plugin is already installed. ✨\033[0m"
 fi
 
 # Function to add zsh-autosuggestions to the plugins array in .zshrc idempotently
