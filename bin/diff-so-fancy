@@ -5,6 +5,12 @@ DIFF_SO_FANCY_DIR="$PLUGIN_DIR/diff-so-fancy"
 REPO_URL="https://github.com/so-fancy/diff-so-fancy.git"
 ZSHRC="$HOME/.zshrc"
 
+# Check if diff-so-fancy is already installed and exit if it is
+if [ -d "$DIFF_SO_FANCY_DIR" ]; then
+    echo "\e[32m✨ diff-so-fancy is already installed. ✨\e[0m"
+    exit 0
+fi
+
 # Clone diff-so-fancy if it's not already cloned
 if [ ! -d "$DIFF_SO_FANCY_DIR" ]; then
     git clone "$REPO_URL" "$DIFF_SO_FANCY_DIR"
