@@ -7,7 +7,7 @@ export PLUGIN_DIR="$HOME/repos/terminal/plugins"
 mkdir -p "$PLUGIN_DIR"
 
 # Install diff-so-fancy
-/bin/zsh bin/install_diff_so_fancy.sh
+/bin/zsh bin/diff-so-fancy
 
 # Future installations can be added here
 # /bin/zsh bin/install_other_tool.sh
