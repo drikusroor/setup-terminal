@@ -31,6 +31,9 @@ mkdir -p "$OH_MY_ZSH_CUSTOM/plugins"  # Ensure the custom plugins directory exis
 # Install eza
 /bin/zsh bin/eza
 
+# Install web-search
+/bin/zsh bin/web-search
+
 
 echo "\e[32m✨ All tools and plugins installed successfully. ✨\e[0m"
 
