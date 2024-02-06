@@ -1,6 +1,6 @@
 # Setup Terminal
 
-This repository hosts several scripts that will setup a terminal with various plugins and CLI tools. The scripts are designed to be run on a Zsh shell.
+This repository hosts several scripts that will setup a terminal with various plugins and CLI tools. The scripts are designed to be run on a Zsh shell with Oh My Zsh installed.
 
 ## Structure
 
@@ -10,6 +10,7 @@ The project has the following structure:
 bin/
   bat
   diff-so-fancy
+  exa
   zsh-autosuggestions
   zsh-bat
 LICENSE
@@ -22,6 +23,7 @@ The `bin/` directory contains scripts for installing individual tools and plugin
 
 - `bat`: Installs the `bat` command-line utility.
 - `diff-so-fancy`: Installs the `diff-so-fancy` tool for improving the output of `git diff`.
+- `exa`: Installs the `exa` command-line utility.
 - `zsh-autosuggestions`: Installs the `zsh-autosuggestions` plugin for Zsh.
 - `zsh-bat`: Installs the `zsh-bat` plugin for integrating `bat` with the Zsh shell.
 
