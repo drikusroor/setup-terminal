@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+# The ZSHRC variable points to the user's .zshrc file
+ZSHRC="$HOME/.zshrc"
+PLUGIN_NAME="json-tools"
+
+# Function to add the json-tools plugin to the plugins array in .zshrc idempotently
+add_plugin_to_zshrc() {
+    local plugin="$1"
+    local zshrc="$2"
+
+    # Check if the plugin is already in the plugins array
+    if ! grep -q "^plugins=(.*\\b$plugin\\b.*" "$zshrc"; then
+        # Append the plugin safely without disrupting the array structure
+        sed -i'' "/^plugins=(/ s/)$/ $plugin)/" "$zshrc"
+        echo "$plugin added to plugins array in $zshrc."
+    else
+        echo "$plugin is already in the plugins array in $zshrc."
+    fi
+}
+
+# Add json-tools to the plugins array in .zshrc
+add_plugin_to_zshrc "$PLUGIN_NAME" "$ZSHRC"
