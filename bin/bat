@@ -1,5 +1,11 @@
 #!/bin/zsh
 
+# Check if bat is already installed and exit if it is
+if command -v bat &>/dev/null; then
+    echo "\033[32m✨ bat is already installed. ✨\033[0m"
+    exit 0
+fi
+
 # Function to install bat for macOS using Homebrew
 install_bat_macos() {
     if ! command -v brew &>/dev/null; then
