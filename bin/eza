@@ -2,6 +2,11 @@
 
 # Function to install eza for macOS using Homebrew
 install_eza_macos() {
+    if command -v eza &>/dev/null; then
+        echo "eza is already installed. Exiting..."
+        exit 0
+    fi
+
     if ! command -v brew &>/dev/null; then
         echo "Homebrew not found. Installing Homebrew first."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -12,6 +17,12 @@ install_eza_macos() {
 
 # Function to install eza for Linux distributions using apt-get (Debian/Ubuntu) or other suitable package managers
 install_eza_linux() {
+
+    if command -v eza &>/dev/null; then
+        echo "eza is already installed. Exiting..."
+        exit 0
+    fi
+
     if command -v apt-get &>/dev/null; then
         echo "Using apt-get to install eza..."
         sudo apt-get update && sudo apt-get install -y eza
