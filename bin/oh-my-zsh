@@ -5,7 +5,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing Oh My Zsh..."
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
-    echo "\033[32m Oh My Zsh is already installed.\033[0m"
+    echo "$(tput setaf 2)✨ Oh My Zsh is already installed. ✨$(tput sgr0)"
 fi
 
-echo "\033[32m✨ Oh My Zsh has been installed successfully. ✨\033[0m"
+echo "$(tput setaf 2)✨ Oh My Zsh has been installed successfully. ✨$(tput sgr0)"

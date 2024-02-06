@@ -13,9 +13,9 @@ add_plugin_to_zshrc() {
     if ! grep -q "^plugins=(.*\\b$plugin\\b.*" "$zshrc"; then
         # Append the plugin safely without disrupting the array structure
         sed -i'' "/^plugins=(/ s/)$/ $plugin)/" "$zshrc"
-        echo "$plugin added to plugins array in $zshrc."
+        echo "✨ $plugin has been added to the plugins array in $zshrc. ✨"
     else
-        echo "$plugin is already in the plugins array in $zshrc."
+        echo "✨ $plugin is already in the plugins array in $zshrc. ✨"
     fi
 }
 

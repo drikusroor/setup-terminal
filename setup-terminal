@@ -42,9 +42,9 @@ echo "\e[32m✨ All tools and plugins installed successfully. ✨\e[0m"
 
 # Re-source ~/.zshrc to apply changes, if Zsh is now the default shell
 if [ "$SHELL" = "$(which zsh)" ]; then
-    echo "Re-sourcing ~/.zshrc to apply changes..."
+    echo -e "\033[33m🛠 Re-sourcing ~/.zshrc to apply changes... 🛠\033[0m"
     /bin/zsh -c 'source ~/.zshrc'
     echo -e "\033[32m✨ Your terminal environment has been updated. ✨\033[0m"
 else
-    echo -e "Please change your default shell to Zsh and restart your terminal."
+    echo -e "\033[31m❗️ Please change your default shell to Zsh and restart your terminal. ❗️\033[0m"
 fi
