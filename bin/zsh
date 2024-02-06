@@ -1,0 +1,65 @@
+#!/bin/zsh
+
+# Function to install Zsh on macOS using Homebrew
+install_zsh_macos() {
+    if ! command -v brew &>/dev/null; then
+        echo "Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    echo "Installing Zsh using Homebrew..."
+    brew install zsh
+}
+
+# Function to install Zsh on Linux using different package managers
+install_zsh_linux() {
+    if command -v apt-get &>/dev/null; then
+        echo "Using apt-get to install Zsh..."
+        sudo apt-get update && sudo apt-get install -y zsh
+    elif command -v yum &>/dev/null; then
+        echo "Using yum to install Zsh..."
+        sudo yum install -y zsh
+    elif command -v dnf &>/dev/null; then
+        echo "Using dnf to install Zsh..."
+        sudo dnf install -y zsh
+    elif command -v pacman &>/dev/null; then
+        echo "Using pacman to install Zsh..."
+        sudo pacman -Syu zsh
+    elif command -v zypper &>/dev/null; then
+        echo "Using zypper to install Zsh..."
+        sudo zypper install -y zsh
+    else
+        echo "Package manager not recognized. Please install Zsh manually."
+        return 1
+    fi
+}
+
+# Check if Zsh is installed
+if ! command -v zsh &>/dev/null; then
+    echo "Zsh is not installed. Proceeding with installation..."
+    OS="$(uname -s)"
+    case "$OS" in
+        Linux*)     install_zsh_linux;;
+        Darwin*)    install_zsh_macos;;
+        *)          echo "Operating system not supported for automatic Zsh installation.";;
+    esac
+
+    # Verify Zsh installation was successful
+    if ! command -v zsh &>/dev/null; then
+        echo "\033[31m Failed to install Zsh. You may need to install Zsh manually.\033[0m"
+        return 1
+    fi
+else
+    echo "\033[32m Zsh is already installed.\033[0m"
+fi
+
+# Set Zsh as the default shell
+if [ "$SHELL" != "$(which zsh)" ]; then
+    echo "Setting Zsh as the default shell..."
+    if ! chsh -s "$(which zsh)"; then
+        echo "\033[31m Failed to set Zsh as the default shell. You may need to change your shell manually using 'chsh -s \$(which zsh)'.\033[0m"
+    fi
+else
+    echo "\033[32m Zsh is already the default shell.\033[0m"
+fi
+
+echo "\033[32m✨ Zsh has been installed successfully. ✨\033[0m"
