@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Step 1: Create the directory ~/repos/terminal/plugins
+mkdir -p ~/repos/terminal/plugins
+
+# Step 2: Clone diff-so-fancy into the specified directory
+git clone https://github.com/so-fancy/diff-so-fancy.git ~/repos/terminal/plugins/diff-so-fancy
+
+# Step 3: Add the diff-so-fancy directory to the $PATH
+# The following line will add the directory to the PATH for the session
+export PATH="$PATH:$HOME/repos/terminal/plugins/diff-so-fancy"
+# To make the change permanent, you can add the export line to your shell configuration file (.bashrc, .bash_profile, .zshrc, etc.)
+echo 'export PATH="$PATH:$HOME/repos/terminal/plugins/diff-so-fancy"' >> ~/.zshrc
+
+# Step 4: Configure git to use diff-so-fancy
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RF"
+git config --global interactive.diffFilter "diff-so-fancy --patch"
+
+# Inform the user
+echo "diff-so-fancy installed and configured successfully."
