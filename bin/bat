@@ -1,0 +1,35 @@
+#!/bin/zsh
+
+# Function to install bat for macOS using Homebrew
+install_bat_macos() {
+    if ! command -v brew &>/dev/null; then
+        echo "Homebrew not found. Installing Homebrew first."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    echo "Installing bat using Homebrew..."
+    brew install bat
+}
+
+# Function to install bat for Linux distributions using apt (Debian/Ubuntu) or yum (Fedora)
+install_bat_linux() {
+    if command -v apt &>/dev/null; then
+        echo "Using apt to install bat..."
+        sudo apt update && sudo apt install -y bat
+    elif command -v yum &>/dev/null; then
+        echo "Using yum to install bat..."
+        sudo yum install -y bat
+    else
+        echo "Package manager not recognized. Install bat manually."
+    fi
+}
+
+# Detect the operating system and install bat accordingly
+OS="$(uname -s)"
+case "$OS" in
+    Linux*)     install_bat_linux;;
+    Darwin*)    install_bat_macos;;
+    *)          echo "Operating system not supported for automatic bat installation.";;
+esac
+
+# Success message
+echo "\033[32m✨ bat has been installed successfully. ✨\033[0m"
