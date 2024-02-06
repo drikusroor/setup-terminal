@@ -1,20 +1,26 @@
-#!/bin/bash
+#!/bin/zsh
 
-# Step 1: Create the directory ~/repos/terminal/plugins
-mkdir -p ~/repos/terminal/plugins
+# Define the diff-so-fancy specific directory using PLUGIN_DIR from the parent script
+DIFF_SO_FANCY_DIR="$PLUGIN_DIR/diff-so-fancy"
+REPO_URL="https://github.com/so-fancy/diff-so-fancy.git"
+ZSHRC="$HOME/.zshrc"
 
-# Step 2: Clone diff-so-fancy into the specified directory
-git clone https://github.com/so-fancy/diff-so-fancy.git ~/repos/terminal/plugins/diff-so-fancy
+# Clone diff-so-fancy if it's not already cloned
+if [ ! -d "$DIFF_SO_FANCY_DIR" ]; then
+    git clone "$REPO_URL" "$DIFF_SO_FANCY_DIR"
+else
+    echo "diff-so-fancy is already cloned."
+fi
 
-# Step 3: Add the diff-so-fancy directory to the $PATH
-# The following line will add the directory to the PATH for the session
-export PATH="$PATH:$HOME/repos/terminal/plugins/diff-so-fancy"
-# To make the change permanent, you can add the export line to your shell configuration file (.bashrc, .bash_profile, .zshrc, etc.)
-echo 'export PATH="$PATH:$HOME/repos/terminal/plugins/diff-so-fancy"' >> ~/.zshrc
+# Add the diff-so-fancy directory to the $PATH if not already added
+if ! grep -q "$DIFF_SO_FANCY_DIR" "$ZSHRC"; then
+    echo "export PATH=\"\$PATH:$DIFF_SO_FANCY_DIR\"" >> "$ZSHRC"
+    export PATH="$PATH:$DIFF_SO_FANCY_DIR"
+fi
 
-# Step 4: Configure git to use diff-so-fancy
+# Configure git to use diff-so-fancy
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RF"
 git config --global interactive.diffFilter "diff-so-fancy --patch"
 
-# Inform the user
-echo "diff-so-fancy installed and configured successfully."
+# Success message for diff-so-fancy installation
+echo "\e[32m✨ diff-so-fancy installed successfully. ✨\e[0m"
