@@ -14,3 +14,8 @@ mkdir -p "$PLUGIN_DIR"
 
 
 echo "\e[32m✨ All tools and plugins installed successfully. ✨\e[0m"
+
+# Re-source ~/.zshrc to apply changes
+echo "Re-sourcing ~/.zshrc to apply changes..."
+source ~/.zshrc
+echo "\033[32m✨ Your terminal environment has been updated. ✨\033[0m"
