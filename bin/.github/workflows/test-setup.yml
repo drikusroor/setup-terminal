@@ -1,0 +1,32 @@
+name: Test Setup Terminal Script
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Run setup-terminal
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Zsh
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y zsh
+          chsh -s $(which zsh)
+
+      - name: Install Oh My Zsh
+        run: |
+          sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+      - name: Run setup-terminal script
+        run: |
+          chmod +x ./setup-terminal
+          ./setup-terminal
+        shell: zsh {0}
+
+      - name: Display .zshrc content
+        run: cat ~/.zshrc
+        shell: zsh {0}
