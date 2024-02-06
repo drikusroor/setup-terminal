@@ -2,7 +2,7 @@
 
 # The OH_MY_ZSH_CUSTOM variable is inherited from the setup-terminal script
 ZSH_BAT_PLUGIN_DIR="$OH_MY_ZSH_CUSTOM/plugins/zsh-bat"
-REPO_URL="https://github.com/eth-p/zsh-bat.git"
+REPO_URL="https://github.com/fdellwing/zsh-bat.git"
 ZSHRC="$HOME/.zshrc"
 
 # Clone zsh-bat if it's not already installed
