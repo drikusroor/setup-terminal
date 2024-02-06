@@ -10,7 +10,7 @@ The project has the following structure:
 bin/
   bat
   diff-so-fancy
-  exa
+  eza
   zsh-autosuggestions
   zsh-bat
 LICENSE
@@ -23,7 +23,7 @@ The `bin/` directory contains scripts for installing individual tools and plugin
 
 - `bat`: Installs the `bat` command-line utility.
 - `diff-so-fancy`: Installs the `diff-so-fancy` tool for improving the output of `git diff`.
-- `exa`: Installs the `exa` command-line utility.
+- `eza`: Installs the `eza` command-line utility (a fork of `exa`).
 - `zsh-autosuggestions`: Installs the `zsh-autosuggestions` plugin for Zsh.
 - `zsh-bat`: Installs the `zsh-bat` plugin for integrating `bat` with the Zsh shell.
 

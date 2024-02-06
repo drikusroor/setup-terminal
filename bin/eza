@@ -1,0 +1,41 @@
+#!/bin/zsh
+
+# Function to install eza for macOS using Homebrew
+install_eza_macos() {
+    if ! command -v brew &>/dev/null; then
+        echo "Homebrew not found. Installing Homebrew first."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    echo "Installing eza using Homebrew..."
+    brew install eza
+}
+
+# Function to install eza for Linux distributions using apt-get (Debian/Ubuntu) or other suitable package managers
+install_eza_linux() {
+    if command -v apt-get &>/dev/null; then
+        echo "Using apt-get to install eza..."
+        sudo apt-get update && sudo apt-get install -y eza
+    elif command -v yum &>/dev/null; then
+        echo "Using yum to install eza (make sure you have the EPEL repository enabled)..."
+        sudo yum install -y epel-release && sudo yum install -y eza
+    elif command -v pacman &>/dev/null; then
+        echo "Using pacman to install eza..."
+        sudo pacman -Syu eza
+    elif command -v zypper &>/dev/null; then
+        echo "Using zypper to install eza..."
+        sudo zypper refresh && sudo zypper install -y eza
+    else
+        echo "Package manager not recognized. You might need to install eza manually."
+    fi
+}
+
+# Detect the operating system and install eza accordingly
+OS="$(uname -s)"
+case "$OS" in
+    Linux*)     install_eza_linux;;
+    Darwin*)    install_eza_macos;;
+    *)          echo "Operating system not supported for automatic eza installation.";;
+esac
+
+# Success message
+echo "\033[32m✨ eza has been installed successfully. ✨\033[0m"

@@ -23,8 +23,8 @@ mkdir -p "$OH_MY_ZSH_CUSTOM/plugins"  # Ensure the custom plugins directory exis
 # Install zsh-autosuggestions
 /bin/zsh bin/zsh-autosuggestions
 
-# Install exa
-/bin/zsh bin/exa
+# Install eza
+/bin/zsh bin/eza
 
 
 echo "\e[32m✨ All tools and plugins installed successfully. ✨\e[0m"
