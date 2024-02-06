@@ -10,6 +10,7 @@ The project has the following structure:
 bin/
   bat
   diff-so-fancy
+  zsh-autosuggestions
   zsh-bat
 LICENSE
 README.md
@@ -21,6 +22,7 @@ The `bin/` directory contains scripts for installing individual tools and plugin
 
 - `bat`: Installs the `bat` command-line utility.
 - `diff-so-fancy`: Installs the `diff-so-fancy` tool for improving the output of `git diff`.
+- `zsh-autosuggestions`: Installs the `zsh-autosuggestions` plugin for Zsh.
 - `zsh-bat`: Installs the `zsh-bat` plugin for integrating `bat` with the Zsh shell.
 
 The `setup-terminal` script is the main entry point for setting up the terminal. It exports some environment variables, ensures necessary directories exist, and runs the individual installation scripts.
